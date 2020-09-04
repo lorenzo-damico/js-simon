@@ -10,9 +10,9 @@ $(document).ready(function() {
   }
 
   // 1. Imposto variabili per controllare la difficoltà del gioco.
-  var numeroMax = 100;
-  var quantitaNumeri = 5;
-  var tempoAttesa = 5000;
+  var numeroMax = 10;
+  var quantitaNumeri = 3;
+  var tempoAttesa = 3000;
 
   // 2. Creo l'array in cui andrò ad inserire i numeri generati.
   var numeriGenerati = [];
@@ -44,7 +44,35 @@ $(document).ready(function() {
   // 6. Imposto un timeout per far partire la funzione di gioco.
   setTimeout(
     function() {
-      prompt("prova");
+      // 7. Creo un array dove inserire tutti i numeri immessi dall'utente e uno dove inserire solo i numeri indovinati.
+      var numeriUtente = [];
+      console.log("Numeri inseriti: " + numeriUtente);
+      var numeriRicordati = [];
+      console.log("Numeri ricordati: " + numeriRicordati);
+
+      // 8. Creo un ciclo per chiedere 5( o eventualmente più) volte all'utente i numeri mostrati precedentemente.
+      while (numeriUtente.length < quantitaNumeri) {
+        var numeroUtente = parseInt(prompt("Inserisci un numero mostrato in precedenza"));
+        console.log(numeroUtente);
+
+        if (isNaN(numeroUtente) || numeroUtente < 1 || numeroUtente > numeroMax) {
+          alert("Hai inserito un valore non consentito. Ripeti.");
+
+        } else if (numeriUtente.includes(numeroUtente)) {
+          alert("Hai già inserito questo numero. Ripeti.");
+
+        } else {
+          
+          // 8. Se il numero è indovinato lo pusho anche un un altro array.
+          if (numeriGenerati.includes(numeroUtente)) {
+            numeriRicordati.push(numeroUtente);
+          }
+
+          numeriUtente.push(numeroUtente);
+          console.log("Numeri inseriti: " + numeriUtente);
+          console.log("Numeri ricordati: " + numeriRicordati);
+        }
+      }
     }, tempoAttesa
   );
 
