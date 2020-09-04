@@ -10,9 +10,9 @@ $(document).ready(function() {
   }
 
   // 1. Imposto variabili per controllare la difficoltà del gioco.
-  var numeroMax = 10;
-  var quantitaNumeri = 3;
-  var tempoAttesa = 3000;
+  var numeroMax = 100;
+  var quantitaNumeri = 5;
+  var tempoAttesa = 30000;
 
   // 2. Creo l'array in cui andrò ad inserire i numeri generati.
   var numeriGenerati = [];
@@ -62,8 +62,8 @@ $(document).ready(function() {
           alert("Hai già inserito questo numero. Ripeti.");
 
         } else {
-          
-          // 8. Se il numero è indovinato lo pusho anche un un altro array.
+
+          // 9. Se il numero è indovinato lo pusho anche un un altro array.
           if (numeriGenerati.includes(numeroUtente)) {
             numeriRicordati.push(numeroUtente);
           }
@@ -73,8 +73,21 @@ $(document).ready(function() {
           console.log("Numeri ricordati: " + numeriRicordati);
         }
       }
+
+      // 10. Creo un ciclo per generare il messaggio di esito. Stampo il risultato del gioco.
+      var esitoGioco = "Hai ricordato " + numeriRicordati.length + " numeri.\nI numeri ricordati sono: ";
+
+      for (var i = 0; i < numeriRicordati.length; i++) {
+        if (i == numeriRicordati.length - 1) {
+          esitoGioco += numeriRicordati[i] + ".";
+        } else {
+          esitoGioco += numeriRicordati[i] + ", ";
+        }
+      }
+
+      alert(esitoGioco);
+
     }, tempoAttesa
   );
-
 
 });
