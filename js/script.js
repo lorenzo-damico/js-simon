@@ -75,7 +75,7 @@ $(document).ready(function() {
       }
 
       // 10. Creo un ciclo per generare il messaggio di esito. Stampo il risultato del gioco.
-      var esitoGioco = "Hai ricordato " + numeriRicordati.length + " numeri.\nI numeri ricordati sono: ";
+      var esitoGioco = "";
 
       for (var i = 0; i < numeriRicordati.length; i++) {
         if (i == numeriRicordati.length - 1) {
@@ -85,7 +85,19 @@ $(document).ready(function() {
         }
       }
 
-      alert(esitoGioco);
+      if (numeriRicordati.length == 0) {
+        alert("Non hai ricordato nessun numero!");
+
+      } else if (numeriRicordati.length == 1) {
+        alert("Hai ricordato solo il numero " + esitoGioco);
+
+      } else if (numeriRicordati.length == numeriGenerati.length) {
+        alert("Hai ricordato tutti e " + numeriRicordati.length + " i numeri.\nI numeri ricordati sono: " + esitoGioco);
+
+      } else {
+        alert("Hai ricordato " + numeriRicordati.length + " numeri.\nI numeri ricordati sono: " + esitoGioco);
+
+      }
 
     }, tempoAttesa
   );
