@@ -8,10 +8,11 @@ $(document).ready(function() {
     var numeroRandom = Math.floor(Math.random() * max) + 1;
     return numeroRandom;
   }
-  
-  // 1. Imposto due variabili per controllare la difficoltà del gioco.
+
+  // 1. Imposto variabili per controllare la difficoltà del gioco.
   var numeroMax = 100;
   var quantitaNumeri = 5;
+  var tempoAttesa = 5000;
 
   // 2. Creo l'array in cui andrò ad inserire i numeri generati.
   var numeriGenerati = [];
@@ -40,6 +41,12 @@ $(document).ready(function() {
   // 5. Scrivo il messaggio con l'alert.
   alert(messaggio);
 
+  // 6. Imposto un timeout per far partire la funzione di gioco.
+  setTimeout(
+    function() {
+      prompt("prova");
+    }, tempoAttesa
+  );
 
 
 });
