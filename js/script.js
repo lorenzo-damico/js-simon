@@ -52,7 +52,7 @@ $(document).ready(function() {
 
       // 8. Creo un ciclo per chiedere 5( o eventualmente più) volte all'utente i numeri mostrati precedentemente.
       while (numeriUtente.length < quantitaNumeri) {
-        var numeroUtente = parseInt(prompt("Inserisci un numero mostrato in precedenza"));
+        var numeroUtente = parseInt(prompt("Inserisci un numero mostrato in precedenza compreso fra 1 e " + numeroMax));
         console.log(numeroUtente);
 
         if (isNaN(numeroUtente) || numeroUtente < 1 || numeroUtente > numeroMax) {
