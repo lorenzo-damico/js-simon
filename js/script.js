@@ -29,7 +29,7 @@ $(document).ready(function() {
   }
 
   // 4. Creo un messaggio con un ciclo che esponga i 5( o eventualmente più) numeri generati.
-  var messaggio = "I numeri sono: "
+  var messaggio = "Cerca di ricordare i seguenti numeri: ";
   for (var i = 0; i < numeriGenerati.length; i++) {
     if (i == numeriGenerati.length - 1) {
       messaggio += numeriGenerati[i] + ".";
